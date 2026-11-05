@@ -341,7 +341,7 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
 
 /* ===== Live visits + testimonials. Fill in the value below (see setup guide). ===== */
 (function(){
-  var FIREBASE_URL="PASTE_FIREBASE_URL_HERE";   /* e.g. https://sapatv-ke-default-rtdb.firebaseio.com */
+  var FIREBASE_URL="https://sapatv-ke-default-rtdb.firebaseio.com";   /* e.g. https://sapatv-ke-default-rtdb.firebaseio.com */
   var COUNT_ONCE_PER_DAY=true;                  /* false = count every page load */
   var $=function(i){return document.getElementById(i)};
   var FB=/^https:\/\//.test(FIREBASE_URL)?FIREBASE_URL.replace(/\/$/,''):'';
