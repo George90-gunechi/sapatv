@@ -1,0 +1,26 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "stats": {
+      ".read": true,
+      "visits": {
+        ".write": "newData.isNumber() && newData.val() === (data.exists() ? data.val() : 0) + 1"
+      }
+    },
+    "testimonials": {
+      ".read": true,
+      "$id": {
+        ".write": "!data.exists() && newData.exists()",
+        ".validate": "newData.hasChildren(['name','rating','text','ts']) && newData.child('name').isString() && newData.child('name').val().length > 0 && newData.child('name').val().length <= 40 && newData.child('text').isString() && newData.child('text').val().length >= 5 && newData.child('text').val().length <= 400 && newData.child('rating').isNumber() && newData.child('rating').val() >= 1 && newData.child('rating').val() <= 5 && newData.child('ts').isNumber()",
+        "name": {},
+        "rating": {},
+        "text": {},
+        "ts": {},
+        "$other": {
+          ".validate": false
+        }
+      }
+    }
+  }
+}
