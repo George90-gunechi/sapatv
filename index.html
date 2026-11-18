@@ -312,6 +312,153 @@ background:radial-gradient(ellipse 150px 52px at 8% 72%,rgba(255,196,150,.5),rgb
 .ey{transform-origin:30px 42px;animation:blk 4.2s infinite}@keyframes blk{0%,94%,100%{transform:scaleY(1)}97%{transform:scaleY(.08)}}
 @media(min-width:860px){.moon{right:7%;left:auto;top:34px;width:clamp(48px,7vw,78px)}}
 .gtxt{position:relative}.gtxt:before{content:"";position:absolute;inset:-18px -40px;z-index:-1;background:radial-gradient(ellipse at center,rgba(5,14,34,.6),transparent 70%)}
+
+/* ===== Previous video-card styling retained for fallback =====
+   Uses the supplied cinematic sleigh footage instead of the illustrated SVG flight.
+   Keep the source MP4 beside index.html when publishing. */
+.sky .fly,
+.sky .eg,
+.sky .ground,
+.sky .cld,
+.sky .lights,
+.sky .lts { display:none !important; }
+.sky .vid.cinematic {
+  display:block;
+  position:relative;
+  z-index:2;
+  width:min(38vw, 260px);
+  aspect-ratio:9/16;
+  margin:0 auto;
+  overflow:hidden;
+  border-radius:18px;
+  background:#06101b;
+  box-shadow:0 18px 55px rgba(0,0,0,.58),
+             0 0 0 1px rgba(255,255,255,.25),
+             0 0 42px rgba(90,210,190,.24);
+}
+.sky .vid.cinematic video {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  cursor:pointer;
+}
+.sky .vid.cinematic .vc {
+  position:absolute;
+  left:0; right:0; bottom:0;
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  padding:32px 9px 10px;
+  background:linear-gradient(transparent,rgba(0,0,0,.72));
+}
+.sky .vid.cinematic .vc button {
+  min-height:32px;
+  padding:6px 11px;
+  border:1px solid rgba(255,255,255,.42);
+  border-radius:99px;
+  color:#fff;
+  background:rgba(5,11,6,.72);
+  font:700 12px "Segoe UI",Roboto,Arial,sans-serif;
+  cursor:pointer;
+}
+.sky .vid.cinematic .vc button:hover {
+  color:#06140a;
+  background:var(--lime);
+}
+.sky .skyin {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  justify-items:stretch;
+  gap:clamp(22px,5vw,56px);
+  max-width:900px;
+}
+.sky .gtxt { text-align:left; }
+.sky .gr2 { margin-left:0; margin-right:0; }
+.sky .gtxt:before { inset:-22px -26px; }
+.sky .moon { z-index:0; }
+@media(max-width:650px) {
+  .sky .skyin { grid-template-columns:1fr; justify-items:center; gap:18px; }
+  .sky .gtxt { text-align:center; }
+  .sky .gr2 { margin-left:auto; margin-right:auto; }
+  .sky .vid.cinematic { width:min(48vw,210px); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .sky .vid.cinematic { animation:none !important; }
+}
+
+
+/* ===== Full-scene cinematic Christmas treatment ===== */
+.sky { isolation:isolate; overflow:hidden; background:#071323 !important; }
+.sky .cinema-scene {
+  position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  background:#071323;
+}
+.sky .cinema-scene > img {
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; object-position:center 48%;
+  opacity:.96; filter:saturate(1.08) contrast(1.08) brightness(.88);
+  transform:scale(1.035);
+}
+.sky .cinema-vignette {
+  position:absolute; inset:0;
+  background:
+    linear-gradient(90deg,rgba(3,10,24,.78),rgba(3,10,24,.20) 65%,rgba(3,10,24,.12)),
+    linear-gradient(0deg,rgba(2,8,18,.58),transparent 38%,rgba(3,9,23,.12)),
+    radial-gradient(ellipse at 52% 38%,transparent 22%,rgba(1,6,17,.36) 100%);
+}
+.sky .cinema-clouds {
+  position:absolute; inset:-12% -20%;
+  opacity:.42; filter:blur(24px);
+  background:
+    radial-gradient(ellipse at 8% 76%,rgba(190,213,238,.46),transparent 25%),
+    radial-gradient(ellipse at 88% 72%,rgba(170,198,227,.42),transparent 27%),
+    radial-gradient(ellipse at 46% 100%,rgba(210,225,244,.34),transparent 34%);
+  animation:cloud-drift 38s ease-in-out infinite alternate;
+}
+.sky .cinema-snow {
+  position:absolute; inset:-30% 0 0;
+  opacity:.58;
+  background-image:
+    radial-gradient(2px 2px at 12% 18%,rgba(255,255,255,.9) 50%,transparent 70%),
+    radial-gradient(1px 1px at 34% 62%,rgba(255,255,255,.8) 50%,transparent 70%),
+    radial-gradient(2px 2px at 78% 38%,rgba(255,255,255,.85) 50%,transparent 70%),
+    radial-gradient(1px 1px at 91% 79%,rgba(255,255,255,.7) 50%,transparent 70%),
+    radial-gradient(3px 3px at 57% 24%,rgba(255,255,255,.55) 50%,transparent 70%);
+  background-size:190px 230px,250px 290px,310px 260px,220px 310px,390px 340px;
+  animation:cinema-fall 13s linear infinite;
+}
+@keyframes cinema-fall { from{transform:translate3d(0,-8%,0)} to{transform:translate3d(-4%,28%,0)} }
+@keyframes cloud-drift { from{transform:translate3d(-2%,1%,0) scale(1)} to{transform:translate3d(2%,-1%,0) scale(1.06)} }
+.sky .skyin {
+  position:relative; z-index:3; display:flex; align-items:center;
+  justify-content:flex-start; min-height:clamp(440px,58vw,690px);
+  max-width:1120px; padding-top:clamp(65px,9vw,110px);
+  padding-bottom:clamp(65px,9vw,110px);
+}
+.sky .gtxt { max-width:560px; text-shadow:0 3px 24px rgba(0,0,0,.78); }
+.sky .gtxt:before {
+  inset:-42px -50px; z-index:-1;
+  background:radial-gradient(ellipse at center,rgba(2,9,22,.68),rgba(2,9,22,.18) 62%,transparent 78%);
+}
+.sky .gr1 { color:#fff4dc; }
+.sky .gr2 { color:rgba(255,255,255,.94); }
+.sky .moon,.sky .stars,.sky .shoot,.sky .lay { z-index:1; }
+.sky .cinema-scene + * { position:relative; }
+@media(max-width:650px) {
+  .sky .skyin { min-height:600px; justify-content:center; padding-top:100px; padding-bottom:100px; }
+  .sky .gtxt { text-align:center; max-width:94%; }
+  .sky .cinema-vignette {
+    background:linear-gradient(0deg,rgba(2,8,18,.72),rgba(3,10,24,.22) 65%,rgba(3,9,23,.18)),
+               radial-gradient(ellipse at 50% 45%,transparent 15%,rgba(1,6,17,.35) 100%);
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .sky .cinema-clouds,.sky .cinema-snow { animation:none !important; }
+  .sky .cinema-scene > img { transform:none; }
+}
+
 </style>
 </head>
 <body>
@@ -332,6 +479,13 @@ background:radial-gradient(ellipse 150px 52px at 8% 72%,rgba(255,196,150,.5),rgb
 <p class="gr1">Merry Christmas<small>&amp; a Happy New Year</small></p>
 <p class="gr2">Krismasi Njema na Heri ya Mwaka Mpya from everyone at SAPA TV Kenya. Season’s greetings to you and your family.</p>
 <span class="cd" id="xcd"></span>
+</div>
+
+<div class="cinema-scene" aria-hidden="true">
+  <img src="christmas-cinematic.gif" alt="" fetchpriority="high">
+  <div class="cinema-vignette"></div>
+  <div class="cinema-clouds"></div>
+  <div class="cinema-snow"></div>
 </div>
 </div>
 <div class="cld c1" aria-hidden="true"></div><div class="cld c2" aria-hidden="true"></div>
