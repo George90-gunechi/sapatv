@@ -148,6 +148,117 @@ footer strong{color:var(--lime)}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .rvsum{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin:0 0 14px;font-weight:700}.rvsum .big{font:italic 900 44px "Arial Black",Impact,sans-serif;color:var(--lime)}.rvsum .stars{color:var(--amber);font-size:26px;letter-spacing:2px}
 .vcpill{display:inline-block;border:1px solid var(--line);background:var(--panel);border-radius:99px;padding:4px 14px;font-size:14px;font-weight:600;color:var(--mute);margin:0 auto 18px}.vcpill b{color:var(--lime)}.vcpill[hidden]{display:none}.rvmore{margin:16px 0}.rvmore[hidden],#rvmore[hidden]{display:none}
+/* ===== Christmas season layer (auto-hides after 6 Jan 2027, see script) ===== */
+html:not(.noxmas) .logo{position:relative}
+html:not(.noxmas) .logo:before{content:"";position:absolute;left:-9px;top:-11px;width:28px;height:24px;z-index:1;transform:rotate(-20deg);background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 24'%3E%3Cpath d='M3 20Q6 2 20 3Q15 8 17 20Z' fill='%23d8232a'/%3E%3Crect x='1' y='17' width='20' height='6' rx='3' fill='%23fff'/%3E%3Ccircle cx='21' cy='4' r='3.5' fill='%23fff'/%3E%3C/svg%3E") no-repeat center/contain}
+.noxmas .xm{display:none!important}
+.sky{position:relative;overflow:hidden;text-align:center;padding:46px 0 96px;background:radial-gradient(1.5px 1.5px at 8% 38%,#fff,transparent),radial-gradient(1.5px 1.5px at 22% 70%,#fff,transparent),radial-gradient(2px 2px at 37% 24%,#fff,transparent),radial-gradient(1.5px 1.5px at 63% 62%,#fff,transparent),radial-gradient(2px 2px at 78% 30%,#fff,transparent),radial-gradient(1.5px 1.5px at 93% 66%,#fff,transparent),linear-gradient(#0a1838,#0c2a2a 72%,#071a0c)}
+.sky:after{content:"";position:absolute;right:6%;top:40px;width:40px;height:40px;border-radius:50%;box-shadow:inset -11px 3px 0 0 #ffeeb0}
+.skyin{position:relative;z-index:2}
+.gr1{font:italic 900 clamp(32px,6.4vw,64px)/1.02 "Arial Black",Impact,sans-serif;color:#fff;text-shadow:0 3px 0 #b3121a,0 8px 24px rgba(0,0,0,.45)}
+.gr1 small{display:block;font-size:.5em;margin-top:6px;color:var(--lime);text-shadow:0 2px 0 #06140a}
+.gr2{color:#dfeadb;max-width:52ch;margin:12px auto 14px;font-weight:600}
+.cd{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:14px;padding:6px 16px;border-radius:99px;box-shadow:0 0 0 2px #fff3}
+.lights{position:absolute;top:0;left:0;right:0;height:30px;display:flex;justify-content:space-between;list-style:none;z-index:3;pointer-events:none}
+.lights:before{content:"";position:absolute;top:2px;left:0;right:0;height:2px;background:#25402a}
+.lights li{width:10px;height:15px;margin-top:3px;border-radius:50% 50% 50% 50%/40% 40% 60% 60%;background:currentColor;box-shadow:0 0 12px 3px currentColor;animation:tw 1.6s ease-in-out infinite}
+.lights li:nth-child(odd){margin-top:9px}
+.lights li:nth-child(4n+1){color:#ff3b3b}.lights li:nth-child(4n+2){color:#ffc21a;animation-delay:.4s}.lights li:nth-child(4n+3){color:#3ddc5f;animation-delay:.8s}.lights li:nth-child(4n){color:#4db3ff;animation-delay:1.2s}
+@keyframes tw{50%{opacity:.35;box-shadow:0 0 4px 1px currentColor}}
+.ground{position:absolute;left:0;right:0;bottom:0;height:34px;overflow:hidden;z-index:1}
+.ground:before{content:"";position:absolute;left:-10%;right:-10%;top:10px;height:80px;background:#eaf6ff;border-radius:50% 50% 0 0}
+.eg{position:absolute;bottom:8px;display:flex;gap:6px;z-index:2}.eg.l{left:3%}.eg.r{right:3%}
+.eg .elf{width:46px;height:auto}
+.fly{position:absolute;top:14px;left:0;width:clamp(290px,40vw,500px);z-index:1;pointer-events:none;animation:fly 24s linear infinite}
+.fly svg{display:block;width:100%;height:auto;overflow:visible;animation:soar 3.2s ease-in-out infinite}
+@keyframes fly{from{transform:translateX(-110%)}to{transform:translateX(calc(100vw + 10%))}}
+@keyframes soar{50%{transform:translateY(8px) rotate(1.5deg)}}
+.bob{animation:bobd .45s ease-in-out infinite alternate}@keyframes bobd{to{transform:translateY(-3px)}}
+.lg{transform-origin:0 0;animation:kick .45s ease-in-out infinite alternate}.lg.b{animation-direction:alternate-reverse}
+@keyframes kick{from{transform:rotate(-22deg)}to{transform:rotate(22deg)}}
+.nose{animation:glow 1s ease-in-out infinite alternate}@keyframes glow{from{opacity:.65}to{opacity:1}}
+.wave{transform-origin:118px 56px;animation:wv .5s ease-in-out infinite alternate}@keyframes wv{from{transform:rotate(-14deg)}to{transform:rotate(22deg)}}
+.spk{animation:tw .9s infinite}.spk:nth-child(2){animation-delay:.3s}.spk:nth-child(3){animation-delay:.6s}
+.elf{overflow:visible}
+.dnc{animation:hop .62s ease-in-out infinite alternate}@keyframes hop{from{transform:translateY(0) rotate(-7deg)}to{transform:translateY(-10px) rotate(7deg)}}
+.al{transform-origin:19px 58px;animation:aL .5s ease-in-out infinite alternate}.ar{transform-origin:41px 58px;animation:aR .5s ease-in-out infinite alternate}
+@keyframes aL{to{transform:rotate(140deg)}}@keyframes aR{from{transform:rotate(-140deg)}to{transform:rotate(0)}}
+.ll{transform-origin:25px 76px;animation:kick .5s ease-in-out infinite alternate}.lr{transform-origin:35px 76px;animation:kick .5s ease-in-out infinite alternate-reverse}
+.belf{position:absolute;bottom:calc(100% - 4px);width:40px;pointer-events:none}.belf.l{left:12px}.belf.r{right:12px}.belf .elf{display:block;width:100%;height:auto}
+.peek{position:absolute;left:14px;top:-62px;width:56px;height:62px;overflow:hidden;pointer-events:none}
+.pk{animation:pk 7s ease-in-out infinite;animation-delay:var(--d)}.pk .elf{display:block;width:56px;height:auto}
+@keyframes pk{0%,10%{transform:translateY(100%)}18%,62%{transform:translateY(0)}72%,100%{transform:translateY(100%)}}
+.say{position:absolute;left:76px;top:-46px;background:#fff;color:#b3121a;font:900 12px/1 "Arial Black",sans-serif;padding:7px 11px;border-radius:12px;white-space:nowrap;pointer-events:none;transform-origin:0 100%;animation:say 7s ease-in-out infinite;animation-delay:var(--d)}
+.say:after{content:"";position:absolute;left:8px;bottom:-6px;border:6px solid transparent;border-top-color:#fff;border-bottom:0}
+@keyframes say{0%,16%{transform:scale(0)}22%{transform:scale(1.18)}27%,60%{transform:scale(1)}68%,100%{transform:scale(0)}}
+.snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9}
+.snowbtn{position:fixed;left:14px;bottom:14px;z-index:20;background:var(--panel);color:var(--text);border:1px solid var(--green);border-radius:99px;padding:8px 14px;font:700 13px "Segoe UI",Roboto,Arial,sans-serif;cursor:pointer}
+.snowbtn:hover{background:var(--green);color:#06140a}
+@media(max-width:560px){.eg .elf:nth-child(n+2){display:none}.sky:after{display:none}}
+@media(prefers-reduced-motion:reduce){.xm,.xm *{animation:none!important}.fly{left:20%}.pk{transform:none!important}.say{transform:none!important}}
+/* ===== Christmas v2: atmosphere, depth, motion ===== */
+.sky{padding:64px 0 98px;background:radial-gradient(ellipse 70% 50% at 50% 108%,rgba(255,150,80,.3),transparent 70%),radial-gradient(circle at 88% 24%,rgba(255,240,190,.18),transparent 36%),linear-gradient(#060f2b,#0b2540 55%,#0a2a22 86%,#071a0c)}
+.sky:after{display:none}
+.lay{position:absolute;inset:0;pointer-events:none;translate:calc(var(--px,0)*-12px) calc(var(--py,0)*-6px);transition:translate .5s ease-out}
+.aur{position:absolute;left:-8%;right:-8%;top:-6%;height:78%;filter:blur(14px);mix-blend-mode:screen;opacity:.5;transform-origin:50% 100%;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 38%,transparent 96%),repeating-linear-gradient(100deg,transparent 0 22px,#000 56px,transparent 92px);mask-image:linear-gradient(to bottom,transparent,#000 38%,transparent 96%),repeating-linear-gradient(100deg,transparent 0 22px,#000 56px,transparent 92px);-webkit-mask-composite:source-in;mask-composite:intersect}
+.a1{background:linear-gradient(90deg,#1fe39b,#3fb6ff 55%,#a56bff);animation:au1 13s ease-in-out infinite alternate}
+.a2{top:6%;height:60%;opacity:.38;background:linear-gradient(90deg,#a56bff,#ff6bd5 45%,#3fe3c0);animation:au2 17s ease-in-out infinite alternate}
+@keyframes au1{0%{transform:translateX(-6%) skewX(-9deg) scaleY(.88);opacity:.32}50%{opacity:.62}100%{transform:translateX(6%) skewX(9deg) scaleY(1.14);opacity:.4}}
+@keyframes au2{0%{transform:translateX(7%) skewX(8deg) scaleY(1.1);opacity:.5}100%{transform:translateX(-7%) skewX(-7deg) scaleY(.85);opacity:.22}}
+.stars{position:absolute;inset:0;pointer-events:none;translate:calc(var(--px,0)*-4px) calc(var(--py,0)*-3px);transition:translate .5s ease-out}
+.stars i{position:absolute;width:var(--s);height:var(--s);border-radius:50%;background:#fff;box-shadow:0 0 6px #fff;animation:tw var(--d) ease-in-out infinite}
+.shoot{position:absolute;top:26px;left:58%;width:110px;height:2px;background:linear-gradient(90deg,#fff,transparent);transform:rotate(-13deg);opacity:0;animation:sh 11s linear 3s infinite}
+@keyframes sh{0%,90%{opacity:0;translate:0 0}92%{opacity:1}100%{opacity:0;translate:-300px 70px}}
+.moon{position:absolute;right:7%;top:34px;width:clamp(48px,7vw,78px);aspect-ratio:1;border-radius:50%;pointer-events:none;translate:calc(var(--px,0)*-7px) calc(var(--py,0)*-4px);background:radial-gradient(circle at 34% 30%,#fffdf0,#f6ebbb 55%,#d9cb92);box-shadow:0 0 26px 8px rgba(255,244,200,.55),0 0 90px 38px rgba(255,236,170,.22);animation:mg 5s ease-in-out infinite alternate}
+.moon:before{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 62% 36%,rgba(150,130,80,.32) 0 9%,transparent 10%),radial-gradient(circle at 38% 66%,rgba(150,130,80,.28) 0 7%,transparent 8%),radial-gradient(circle at 72% 70%,rgba(150,130,80,.25) 0 5%,transparent 6%)}
+@keyframes mg{to{box-shadow:0 0 36px 12px rgba(255,244,200,.7),0 0 120px 56px rgba(255,236,170,.28)}}
+.lts{position:absolute;top:0;left:0;right:0;height:70px;z-index:3;pointer-events:none;animation:fi 1.4s ease both}
+.lts svg{position:absolute;left:0;top:0;width:100%;height:70px;overflow:visible}
+@keyframes fi{from{opacity:0}}
+.bulb{position:absolute;width:12px;height:24px;margin-left:-6px;transform-origin:50% 0;rotate:var(--r);animation:sw var(--s) ease-in-out infinite alternate}
+.bulb:before{content:"";position:absolute;left:3px;top:0;width:6px;height:6px;background:#1b2b1d;border-radius:1px}
+.bulb:after{content:"";position:absolute;left:0;top:5px;width:12px;height:18px;border-radius:50% 50% 50% 50%/34% 34% 66% 66%;background:radial-gradient(circle at 36% 28%,rgba(255,255,255,.85),transparent 34%),var(--c);box-shadow:0 0 10px 3px var(--c),0 10px 34px 10px var(--g);animation:gl var(--t) ease-in-out infinite;animation-delay:var(--dl)}
+@keyframes sw{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@keyframes gl{0%,100%{opacity:1}22%{opacity:.5;box-shadow:0 0 4px 1px var(--c),0 6px 14px 4px var(--g)}45%{opacity:.95}70%{opacity:.62}85%{opacity:1}}
+.skyin .gr1{animation:rise .95s cubic-bezier(.2,.8,.2,1) .15s both}.skyin .gr2{animation:rise .95s cubic-bezier(.2,.8,.2,1) .4s both}
+.cd{position:relative;overflow:hidden;animation:pop .6s cubic-bezier(.3,1.6,.5,1) .75s both;transition:transform .25s}.cd:hover{transform:scale(1.06)}
+.cd:after{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:shn 4.5s ease-in-out 2.2s infinite}
+@keyframes rise{from{opacity:0;transform:translateY(26px);filter:blur(6px)}}@keyframes pop{from{opacity:0;transform:scale(.6)}}@keyframes shn{to{left:130%}}
+.fly{filter:drop-shadow(0 0 12px rgba(255,214,120,.55))}
+.fly .arc{animation:arc 24s ease-in-out infinite}
+@keyframes arc{0%{transform:translateY(44px) rotate(-3deg)}50%{transform:translateY(-2px) rotate(0)}100%{transform:translateY(36px) rotate(3deg)}}
+.fly.far{top:88px;width:clamp(150px,17vw,220px);opacity:.5;z-index:0;animation-duration:42s;animation-delay:-15s;filter:blur(.7px) drop-shadow(0 0 6px rgba(255,214,120,.35))}
+.fly.far .arc{animation-duration:42s;animation-delay:-15s}
+.tr{animation:trl 1.5s linear infinite}@keyframes trl{to{transform:translate(-70px,10px) scale(.2);opacity:0}}
+.hat{transform-origin:30px 34px;animation:hatw .62s ease-in-out infinite alternate-reverse}@keyframes hatw{from{transform:rotate(-8deg)}to{transform:rotate(8deg)}}
+.dnc.v1{animation:wig .7s ease-in-out infinite alternate}@keyframes wig{from{transform:translate(-5px,0) rotate(-10deg)}to{transform:translate(5px,-6px) rotate(10deg)}}
+.dnc.v2{animation:twirl 2.4s ease-in-out infinite}@keyframes twirl{0%,55%,100%{transform:translateY(0) scaleX(1)}68%{transform:translateY(-16px) scaleX(-1)}82%{transform:translateY(-4px) scaleX(1)}}
+.dnc.v3{animation:sq .5s ease-in-out infinite alternate;transform-origin:50% 100%}@keyframes sq{from{transform:scale(1.05,.93)}to{transform:translateY(-9px) scale(.95,1.07)}}
+.ew{position:relative;display:block;width:46px;transform-origin:50% 100%;cursor:pointer;animation:popin .6s cubic-bezier(.3,1.6,.5,1) both}
+.ew .elf{display:block;transition:filter .25s}.ew:hover .elf{filter:brightness(1.15) drop-shadow(0 0 8px rgba(255,255,255,.55))}
+.ew:after{content:"";position:absolute;left:7px;right:7px;bottom:-3px;height:7px;border-radius:50%;background:rgba(8,24,50,.4);filter:blur(2px);animation:shd .62s ease-in-out infinite alternate;animation-delay:var(--sd)}
+@keyframes shd{to{transform:scale(.7);opacity:.5}}@keyframes popin{from{opacity:0;transform:scale(0) translateY(24px)}}
+@media(max-width:560px){.eg .ew:nth-child(n+2){display:none}.moon{right:4%}}
+.card,.btn,.chips span,details{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease,background .2s}
+html:not(.noxmas) .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(108,197,29,.3)}
+html:not(.noxmas) .btn:active{transform:none}
+html:not(.noxmas) .card.plan:hover{transform:translateY(-5px);border-color:var(--lime);box-shadow:0 14px 34px rgba(108,197,29,.2)}
+html:not(.noxmas) .chips span:hover{transform:translateY(-2px);border-color:var(--green)}
+html:not(.noxmas) .logo:hover:before{animation:wg .5s ease-in-out}@keyframes wg{50%{transform:rotate(-38deg) translateY(-2px)}}
+.xr{opacity:0;translate:0 26px;transition:opacity .8s ease,translate .8s cubic-bezier(.2,.75,.2,1),transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.xr.in{opacity:1;translate:0 0}
+@media(prefers-reduced-motion:reduce){.xr{opacity:1;translate:none}.lay,.stars,.moon{translate:none}}
+/* ===== Christmas video card ===== */
+.skyin{display:grid;grid-template-columns:1fr;justify-items:center;gap:22px}
+@media(min-width:860px){.skyin{grid-template-columns:1fr auto;justify-items:stretch;align-items:center;gap:44px}.moon{right:auto;left:4%;top:70px;width:clamp(44px,5vw,60px)}}
+.vid{position:relative;margin:0;width:min(60vw,210px);aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#04101f;box-shadow:0 0 0 2px rgba(255,255,255,.18),0 18px 50px rgba(0,0,0,.55),0 0 60px rgba(120,230,190,.25);animation:pop .8s cubic-bezier(.3,1.4,.5,1) .5s both;transition:transform .35s ease,box-shadow .35s ease}
+@media(min-width:860px){.vid{width:240px}}
+.vid:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 0 0 2px rgba(255,255,255,.3),0 22px 60px rgba(0,0,0,.6),0 0 80px rgba(120,230,190,.38)}
+.vid video{display:block;width:100%;height:100%;object-fit:cover;cursor:pointer}
+.vc{position:absolute;left:0;right:0;bottom:0;display:flex;gap:6px;justify-content:flex-end;padding:22px 10px 10px;background:linear-gradient(transparent,rgba(0,0,0,.6))}
+.vc button{background:rgba(5,11,6,.72);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:5px 11px;font:700 12px "Segoe UI",Roboto,Arial,sans-serif;cursor:pointer;transition:background .2s}
+.vc button:hover{background:var(--green);color:#06140a}
+.sky:not(.novid) .fly{display:none}.sky.novid .vid{display:none}
 </style>
 </head>
 <body>
@@ -157,6 +268,24 @@ footer strong{color:var(--lime)}
 <ul><li><a href="#channels">Channels</a></li><li><a href="#plans">Plans</a></li><li><a href="#pay">Pay</a></li><li><a href="#install">Install</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#contact">Contact</a></li></ul>
 <a class="btn" href="https://wa.me/254789535040?text=Hello%21%20I%20want%20to%20try%20SAPA%20TV%20free%20for%201%20week." target="_blank" rel="noopener">Get 1 week free</a>
 </div></nav>
+<div class="sky xm" id="sky">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b98048"/><stop offset=".5" stop-color="#8a5a2b"/><stop offset="1" stop-color="#5a3719"/></linearGradient><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ee4550"/><stop offset="1" stop-color="#a8121b"/></linearGradient><radialGradient id="gl"><stop offset="0" stop-color="#ffd270" stop-opacity=".4"/><stop offset="1" stop-color="#ffd270" stop-opacity="0"/></radialGradient><radialGradient id="fg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#ffe9cf"/><stop offset=".55" stop-color="#ffd7b0"/><stop offset="1" stop-color="#d89c6f"/></radialGradient></defs></svg>
+<div class="lay" aria-hidden="true"><div class="aur a1"></div><div class="aur a2"></div></div><div class="stars" id="stars" aria-hidden="true"></div><div class="moon" aria-hidden="true"></div><i class="shoot" aria-hidden="true"></i>
+<div class="lts" id="lights" aria-hidden="true"></div>
+<div class="fly far" aria-hidden="true"><div class="arc"><svg viewBox="0 0 520 112" id="sleigh2"></svg></div></div>
+<div class="fly" aria-hidden="true"><div class="arc"><svg viewBox="0 0 520 112" id="sleigh"></svg></div></div>
+<div class="wrap skyin">
+<div class="gtxt">
+<p class="gr1">Merry Christmas<small>&amp; a Happy New Year</small></p>
+<p class="gr2">Krismasi Njema na Heri ya Mwaka Mpya from everyone at SAPA TV Kenya. Season’s greetings to you and your family.</p>
+<span class="cd" id="xcd"></span>
+</div>
+<figure class="vid"><video id="vv" muted loop playsinline preload="auto" aria-label="Santa and his reindeer flying over the clouds under the northern lights"></video><div class="vc"><button type="button" id="vplay">Play</button><button type="button" id="vsound">Sound</button></div></figure>
+</div>
+<div class="ground" aria-hidden="true"></div>
+<div class="eg l" id="egl" aria-hidden="true"></div><div class="eg r" id="egr" aria-hidden="true"></div>
+</div>
+
 
 <header class="hero" id="home"><div class="wrap">
 <div>
@@ -208,27 +337,27 @@ footer strong{color:var(--lime)}
 <section class="plans" id="plans"><div class="wrap">
 <h2>Subscription plans</h2>
 <p class="sub">Pick the plan that fits how you watch. Prices are in Kenya shillings.</p>
-<div class="banner">1 WEEK FREE when you download the app on both TV and mobile</div>
+<div class="banner" style="position:relative;margin:56px 0 80px">🎁 1 WEEK FREE when you download the app on both TV and mobile<span class="belf l xm" data-elf="1"></span><span class="belf r xm" data-elf="2"></span></div>
 <div class="grid">
-<div class="card plan">
+<div class="card plan"><span class="peek xm" aria-hidden="true" style="--d:-0.0s"><span class="pk" data-elf="0"></span></span><span class="say xm" aria-hidden="true" style="--d:-0.0s">Ho ho ho!</span>
 <div class="for">Mobile only</div><div class="days">30 days</div>
 <div class="price"><small>KSH</small>400</div>
 <ul><li>Watch on your phone</li><li>Valid for 30 days</li></ul>
 <a class="btn" href="https://wa.me/254789535040?text=Hello%21%20I%20want%20the%20Mobile%20Only%20plan%20%2830%20days%2C%20KSH%20400%29." target="_blank" rel="noopener">Choose Mobile</a>
 </div>
-<div class="card plan">
+<div class="card plan"><span class="peek xm" aria-hidden="true" style="--d:-1.6s"><span class="pk" data-elf="1"></span></span><span class="say xm" aria-hidden="true" style="--d:-1.6s">Phone + TV fun!</span>
 <div class="for">Mobile + TV</div><div class="days">30 days</div>
 <div class="price"><small>KSH</small>650</div>
 <ul><li>Watch on phone and TV</li><li>Valid for 30 days</li></ul>
 <a class="btn" href="https://wa.me/254789535040?text=Hello%21%20I%20want%20the%20Mobile%20%2B%20TV%20plan%20%2830%20days%2C%20KSH%20650%29." target="_blank" rel="noopener">Choose Mobile + TV</a>
 </div>
-<div class="card plan">
+<div class="card plan"><span class="peek xm" aria-hidden="true" style="--d:-3.2s"><span class="pk" data-elf="2"></span></span><span class="say xm" aria-hidden="true" style="--d:-3.2s">90 days of cheer!</span>
 <div class="for">Mobile + TV combo</div><div class="days">90 days</div>
 <div class="price"><small>KSH</small>1,700</div>
 <ul><li>Watch on phone and TV</li><li>Valid for 90 days</li></ul>
 <a class="btn" href="https://wa.me/254789535040?text=Hello%21%20I%20want%20the%20Mobile%20%2B%20TV%20Combo%20plan%20%2890%20days%2C%20KSH%201%2C700%29." target="_blank" rel="noopener">Choose Combo</a>
 </div>
-<div class="card plan best">
+<div class="card plan best"><span class="peek xm" aria-hidden="true" style="--d:-4.8s"><span class="pk" data-elf="3"></span></span><span class="say xm" aria-hidden="true" style="--d:-4.8s">+2 months free!</span>
 <span class="ribbon">BEST VALUE</span>
 <div class="for">Yearly plan</div><div class="days">12 months</div>
 <span class="bonus">+ 2 MONTHS FREE</span>
@@ -392,6 +521,100 @@ document.querySelectorAll('[data-copy]').forEach(function(b){
   var t;function soon(){clearTimeout(t);t=setTimeout(load,300)}
   try{['/stats.json','/testimonials.json'].forEach(function(p){var es=new EventSource(FB+p);es.addEventListener('put',soon);es.addEventListener('patch',soon);es.onerror=function(){es.close()}})}catch(x){}
   setInterval(load,45000);
+})();
+</script>
+<button type="button" class="snowbtn xm" id="snowbtn" aria-pressed="true">&#10052; Snow: on</button>
+<script>
+(function(){
+  var H=document.documentElement;
+  if(Date.now()>=new Date(2027,0,7).getTime()){H.classList.add('noxmas');return}
+  var $=function(i){return document.getElementById(i)};
+  var COL=[['#1f9d3a','#d8232a'],['#d8232a','#1f9d3a'],['#12a39a','#ffc21a'],['#7b3fc9','#1f9d3a']];
+  function elf(i,dance){var c=COL[i%4],a=c[0],b=c[1];
+    return '<svg class="elf'+(dance?' dnc v'+(i%4):'')+'" style="animation-delay:-'+(i*.17)+'s" viewBox="0 0 60 96" aria-hidden="true">'+
+    '<g class="ll"><rect x="21" y="76" width="8" height="14" fill="'+b+'"/><ellipse cx="23" cy="92" rx="8" ry="3.5" fill="#c9962b"/></g>'+
+    '<g class="lr"><rect x="31" y="76" width="8" height="14" fill="'+b+'"/><ellipse cx="37" cy="92" rx="8" ry="3.5" fill="#c9962b"/></g>'+
+    '<g class="al"><path d="M19 58L7 72" stroke="'+a+'" stroke-width="7" stroke-linecap="round"/><circle cx="6" cy="73" r="4" fill="#ffd7b0"/></g>'+
+    '<g class="ar"><path d="M41 58L53 72" stroke="'+a+'" stroke-width="7" stroke-linecap="round"/><circle cx="54" cy="73" r="4" fill="#ffd7b0"/></g>'+
+    '<rect x="17" y="54" width="26" height="24" rx="6" fill="'+a+'"/><rect x="35" y="54" width="8" height="24" rx="4" fill="#000" opacity=".2"/><rect x="19" y="56" width="4" height="18" rx="2" fill="#fff" opacity=".2"/><rect x="17" y="67" width="26" height="4" fill="#2b1a0a"/><rect x="27" y="65.5" width="6" height="7" rx="1" fill="#ffc21a"/>'+
+    '<path d="M18 42L5 35L17 49z" fill="#ffd7b0"/><path d="M42 42L55 35L43 49z" fill="#ffd7b0"/><circle cx="30" cy="43" r="13" fill="url(#fg)"/>'+
+    '<circle cx="25" cy="42" r="1.9" fill="#222"/><circle cx="35" cy="42" r="1.9" fill="#222"/><path d="M24 48q6 6 12 0" stroke="#a3262a" stroke-width="1.7" fill="none" stroke-linecap="round"/>'+
+    '<circle cx="21" cy="47" r="2.6" fill="#ff8f8f" opacity=".6"/><circle cx="39" cy="47" r="2.6" fill="#ff8f8f" opacity=".6"/>'+
+    '<g class="hat"><path d="M15 34L32 1L45 34z" fill="'+a+'"/><path d="M32 1L45 34H35z" fill="#000" opacity=".2"/><rect x="13" y="30" width="34" height="7" rx="3.5" fill="#fff"/><circle cx="32" cy="3" r="4.5" fill="#fff"/></g></svg>'}
+  function deer(x,i,r){return '<g transform="translate('+x+',34)"><g class="bob" style="animation-delay:-'+(i*.13)+'s">'+
+    '<g class="lg" style="animation-delay:-'+(i*.1)+'s"><path d="M12 26v13M28 26v13" stroke="#6b4220" stroke-width="3.4" stroke-linecap="round"/></g>'+
+    '<g class="lg b" style="animation-delay:-'+(i*.1)+'s"><path d="M17 27v12M33 27v12" stroke="#7d4f27" stroke-width="3.4" stroke-linecap="round"/></g>'+
+    '<ellipse cx="22" cy="20" rx="15" ry="8.5" fill="url(#dg)"/><circle cx="6" cy="16" r="3" fill="#fff"/>'+
+    '<path d="M31 16L38 7" stroke="#8a5a2b" stroke-width="7" stroke-linecap="round"/><ellipse cx="40" cy="6" rx="6.5" ry="4.8" fill="#8a5a2b"/>'+
+    '<path d="M37 2l-2-9m2 4l-5-3M42 1l2-9m-2 4l5-3" stroke="#e8c88e" stroke-width="1.7" fill="none" stroke-linecap="round"/>'+
+    '<path d="M27 11q-7 9 0 18" stroke="#d8232a" stroke-width="2" fill="none"/><circle cx="28" cy="23" r="2.2" fill="#ffc21a"/>'+
+    '<circle cx="41" cy="4.5" r="1.1" fill="#fff"/>'+(r?'<circle cx="46" cy="7" r="6" fill="#ff2a2a" opacity=".35" class="nose"/><circle cx="46" cy="7" r="2.6" fill="#ff3030" class="nose"/>':'<circle cx="46" cy="7" r="2.2" fill="#3b2412"/>')+'</g></g>'}
+  var s='<ellipse cx="90" cy="66" rx="190" ry="50" fill="url(#gl)"/>'+trail()+'<g class="spk"><circle cx="-8" cy="70" r="2" fill="#ffc21a"/></g><g class="spk"><circle cx="-24" cy="60" r="1.6" fill="#fff"/></g><g class="spk"><circle cx="-16" cy="84" r="1.8" fill="#9be22f"/></g>'+
+   '<path d="M150 54Q330 44 470 52" stroke="#c9962b" stroke-width="1.4" fill="none"/>';
+  for(var k=0;k<6;k++)s+=deer(172+k*57,k,k==5);
+  s+='<path d="M0 101Q60 110 160 101Q178 99 170 86" stroke="#d4a62a" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M40 92v9M120 92v9" stroke="#d4a62a" stroke-width="3"/>'+
+   '<path d="M20 80Q12 38 46 36Q82 38 72 80Z" fill="#8b5a2b"/><rect x="32" y="26" width="14" height="14" rx="2" fill="#1f9d3a"/><path d="M39 26v14M32 33h14" stroke="#ffc21a" stroke-width="2"/><rect x="50" y="30" width="13" height="12" rx="2" fill="#3a8fe0"/><path d="M56.5 30v12" stroke="#fff" stroke-width="2"/>'+
+   '<path d="M8 58Q8 94 44 94H142Q168 92 170 62L150 62Q142 82 120 82H52Q32 82 30 58Z" fill="url(#sg)" stroke="#ffc21a" stroke-width="2"/>'+
+   '<circle cx="110" cy="64" r="17" fill="#d8232a"/><circle cx="110" cy="40" r="9.5" fill="#ffd7b0"/><path d="M100 41Q110 66 120 41Z" fill="#fff"/><circle cx="110" cy="41" r="1.8" fill="#e88"/>'+
+   '<circle cx="106" cy="37" r="1.1" fill="#222"/><circle cx="114" cy="37" r="1.1" fill="#222"/>'+
+   '<path d="M100 35L113 12L121 35z" fill="#d8232a"/><rect x="99" y="32" width="23" height="5.5" rx="2.5" fill="#fff"/><circle cx="114" cy="11" r="3.8" fill="#fff"/>'+
+   '<g class="wave"><path d="M118 56L134 43" stroke="#d8232a" stroke-width="6.5" stroke-linecap="round"/><circle cx="135.5" cy="42" r="4" fill="#fff"/></g>';
+  $('sleigh').innerHTML=s;$('sleigh2').innerHTML=s;
+  lights();var rz;addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(lights,200)});
+  function ew(i){return '<span class="ew" style="--sd:-'+(i*.17)+'s;animation-delay:'+(.9+i*.14)+'s">'+elf(i,1)+'</span>'}$('egl').innerHTML=ew(0)+ew(1);$('egr').innerHTML=ew(2)+ew(3);
+  document.querySelectorAll('[data-elf]').forEach(function(e){var i=+e.getAttribute('data-elf');e.innerHTML=elf(i,e.classList.contains('belf'))});
+  var t;
+  var now=new Date(),y=now.getFullYear(),xm=new Date(y,11,25);
+  var d=Math.ceil((xm-new Date(y,now.getMonth(),now.getDate()))/864e5);
+  t=d>1?d+' days to Christmas':d==1?'Christmas is tomorrow!':d==0?'It\u2019s Christmas Day!':'Happy New Year '+(y+1)+'!';
+  $('xcd').textContent='\uD83C\uDF84 '+t;
+  /* ===== v2 helpers + snow + reveal ===== */
+  function trail(){var o='';for(var q=0;q<16;q++)o+='<circle class="tr" cx="'+(-2-Math.random()*6)+'" cy="'+(58+Math.random()*40)+'" r="'+(1+Math.random()*1.6).toFixed(1)+'" fill="'+(q%3?'#ffd66b':'#fff')+'" style="animation-delay:-'+(q*.09).toFixed(2)+'s"/>';return o}
+  function lights(){var el=$('lights'),W=el.clientWidth||innerWidth,sw=Math.max(3,Math.round(W/230)),sag=22,n=6,P=[['#ff3b3b','rgba(255,59,59,.22)'],['#ffc21a','rgba(255,194,26,.22)'],['#3ddc5f','rgba(61,220,95,.2)'],['#4db3ff','rgba(77,179,255,.22)'],['#ff7ad9','rgba(255,122,217,.2)']],d='M0 4',b='',k=0;
+    for(var i=0;i<sw;i++){var x0=i*W/sw,x1=(i+1)*W/sw,cx=(x0+x1)/2,cy=4+2*sag;d+='Q'+cx+' '+cy+' '+x1+' 4';
+      for(var j=1;j<=n;j++){var t=j/(n+1),u=1-t,x=u*u*x0+2*u*t*cx+t*t*x1,y=u*u*4+2*u*t*cy+t*t*4,ang=Math.atan2(2*u*(cy-4)+2*t*(4-cy),2*u*(cx-x0)+2*t*(x1-cx))*57.3,p=P[k++%5];
+        b+='<i class="bulb" style="left:'+x.toFixed(1)+'px;top:'+(y-1).toFixed(1)+'px;--c:'+p[0]+';--g:'+p[1]+';--r:'+(ang*.35).toFixed(1)+'deg;--s:'+(2.6+Math.random()*2).toFixed(1)+'s;--t:'+(2.2+Math.random()*3.2).toFixed(1)+'s;--dl:-'+(Math.random()*5).toFixed(1)+'s"></i>'}}
+    el.innerHTML='<svg aria-hidden="true"><path d="'+d+'" fill="none" stroke="#1f3a24" stroke-width="1.8"/></svg>'+b}
+  /* Christmas video (set only during the season, so nothing downloads after it) */
+  var v=$('vv');
+  if(v){var vRM=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches,vSD=navigator.connection&&navigator.connection.saveData,auto=!vRM&&!vSD,pb=$('vplay'),sb=$('vsound');
+    function lab(){pb.innerHTML=v.paused?'&#9654; Play':'&#10074;&#10074; Pause';sb.innerHTML=v.muted?'&#128263; Sound':'&#128266; Mute'}
+    function tog(){v.paused?v.play().catch(function(){}):v.pause()}
+    v.addEventListener('error',function(){$('sky').classList.add('novid')});
+    ['play','pause'].forEach(function(n){v.addEventListener(n,lab)});
+    v.poster='christmas-sleigh.jpg';v.src='christmas-sleigh.mp4';
+    pb.addEventListener('click',tog);v.addEventListener('click',tog);
+    sb.addEventListener('click',function(){v.muted=!v.muted;v.volume=.6;lab()});
+    if(auto){v.play().catch(function(){});
+      if('IntersectionObserver' in window)new IntersectionObserver(function(es){if(es[0].isIntersecting){if(auto&&!v._u)v.play().catch(function(){})}else v.pause()},{threshold:.2}).observe(v)}
+    lab()}
+  var btn=$('snowbtn'),rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(rm){btn.hidden=true;return}
+  var sky=$('sky'),st='';
+  sky.addEventListener('pointermove',function(e){var r=sky.getBoundingClientRect();sky.style.setProperty('--px',((e.clientX-r.left)/r.width-.5)*2);sky.style.setProperty('--py',((e.clientY-r.top)/r.height-.5)*2)});
+  sky.addEventListener('pointerleave',function(){sky.style.setProperty('--px',0);sky.style.setProperty('--py',0)});
+  for(var a=0;a<48;a++)st+='<i style="left:'+(Math.random()*100).toFixed(1)+'%;top:'+(Math.random()*78).toFixed(1)+'%;--s:'+(1+Math.random()*1.7).toFixed(1)+'px;--d:'+(2+Math.random()*4).toFixed(1)+'s;animation-delay:-'+(Math.random()*5).toFixed(1)+'s"></i>';
+  $('stars').innerHTML=st;
+  /* snow: soft sprites, 3D depth (size, speed, opacity, drift all scale with depth) */
+  var spr=document.createElement('canvas');spr.width=spr.height=32;var g=spr.getContext('2d'),gr=g.createRadialGradient(16,16,0,16,16,16);
+  gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.45,'rgba(255,255,255,.75)');gr.addColorStop(1,'rgba(255,255,255,0)');g.fillStyle=gr;g.fillRect(0,0,32,32);
+  var c=document.createElement('canvas');c.className='snow xm';c.setAttribute('aria-hidden','true');document.body.appendChild(c);
+  var x=c.getContext('2d'),W,Hh,F=[],on=true,raf,last=0;
+  function size(){W=c.width=innerWidth;Hh=c.height=innerHeight}size();addEventListener('resize',size);
+  for(var q=0;q<(innerWidth<600?85:140);q++){var z=Math.pow(Math.random(),1.7);F.push({x:Math.random()*W,y:Math.random()*Hh,z:z,s:3+z*17,v:.3+z*1.7,a:.22+z*.5,w:.3+z*1.3,p:Math.random()*6})}
+  function step(now){var dt=Math.min(40,now-(last||now))/16.7;last=now;x.clearRect(0,0,W,Hh);
+    var wind=Math.sin(now/4200)*.5+Math.sin(now/1300)*.15;
+    F.forEach(function(f){f.p+=.012*dt;f.y+=f.v*dt;f.x+=(Math.sin(f.p)*f.w+wind*(.4+f.z*1.6))*dt;
+      if(f.y>Hh+20){f.y=-20;f.x=Math.random()*W}if(f.x>W+20)f.x=-20;if(f.x<-20)f.x=W+20;
+      x.globalAlpha=f.a*(.88+.12*Math.sin(f.p*3));x.drawImage(spr,f.x-f.s/2,f.y-f.s/2,f.s,f.s)});
+    x.globalAlpha=1;raf=requestAnimationFrame(step)}
+  raf=requestAnimationFrame(step);
+  btn.addEventListener('click',function(){on=!on;btn.setAttribute('aria-pressed',on);btn.innerHTML='&#10052; Snow: '+(on?'on':'off');
+    if(on){c.style.display='';last=0;raf=requestAnimationFrame(step)}else{cancelAnimationFrame(raf);c.style.display='none'}});
+  /* gentle staggered reveal on scroll */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;io.unobserve(e.target);var el=e.target,k=Array.prototype.indexOf.call(el.parentNode.children,el);setTimeout(function(){el.classList.add('in')},Math.min(k,5)*90)})},{threshold:.1});
+    document.querySelectorAll('section h2,section .sub,.banner,.grid>.card,.req,details,.rvform,.chips,.two>.card').forEach(function(e){e.classList.add('xr');io.observe(e)})}
 })();
 </script>
 </body>
